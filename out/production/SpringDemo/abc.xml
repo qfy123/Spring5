@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--配置User类的创建-->
+    <!--
+        bean标签中的属性：
+            1、id属性：给要创建的对象起别名
+            2、class属性：要创建的对象的类的全路径（包类路径）
+            3、name属性：跟id属性一样的作用，比较少用
+    -->
+    <bean id="user" class="spring5.User"/>
+    <!--配置Book类,使用set方法注入属性-->
+    <bean id="book" class="spring5.Book">
+        <!--使用property完成属性注入,name属性表示类的属性的名称，value表示要注入的属性值-->
+        <property name="name" value="起飞"/>
+        <property name="author" value="大司马"/>
+        <!--给属性设置空值-->
+<!--        <property name="name">-->
+<!--            <null/>-->
+<!--        </property>-->
+    </bean>
+    <!--配置Order类，使用有参构造注入属性-->
+    <bean id="order" class="spring5.Order">
+        <constructor-arg name="name" value="abc"/>
+        <constructor-arg name="address" value="china"/>
+    </bean>
+</beans>
