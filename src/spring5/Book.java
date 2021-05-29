@@ -1,5 +1,7 @@
 package spring5;
 
+import java.util.List;
+
 /**
  * @author QFY
  * @Description
@@ -8,6 +10,7 @@ package spring5;
 public class Book {
     private String name;
     private String author;
+    private List<String> list;
     //set方法注入
     public void setName(String name) {
         this.name = name;
@@ -16,7 +19,10 @@ public class Book {
     public void setAuthor(String author) {
         this.author = author;
     }
-    public void sout(){
-        System.out.println(name+"::"+author);
+
+    public void setList(List<String> list) {
+        this.list = list;
     }
+
+
 }
