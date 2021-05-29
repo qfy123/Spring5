@@ -1,5 +1,6 @@
 package spring5.dao.impl;
 
+import org.springframework.stereotype.Repository;
 import spring5.dao.UserDAO;
 
 /**
@@ -7,6 +8,7 @@ import spring5.dao.UserDAO;
  * @Description
  * @create 2021-05-28 19:01
  */
+@Repository
 public class UserDAOImpl implements UserDAO {
     @Override
     public void update() {
