@@ -14,7 +14,7 @@
         <value>一并超</value>
     </util:list>
     <!--bean标签有一个属性scope用来设置单实例还是多实例-->
-    <bean id="book" class="spring5.Book" scope="prototype">
+    <bean id="book" class="spring5_IOC.Book" scope="prototype">
         <property name="list" ref="bookList"/>
     </bean>
 </beans>

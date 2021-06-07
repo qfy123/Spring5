@@ -3,11 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--先创建service和dao对象-->
-    <bean id="userService" class="spring5.service.UserService">
+    <bean id="userService" class="spring5_IOC.service.UserService">
         <!--注入userDAO对象,ref:创建userDAO的bean标签的id属性值-->
         <property name="userDAO" ref="userDAO"/>
     </bean>
-    <bean id="userDAO" class="spring5.dao.impl.UserDAOImpl"/>
+    <bean id="userDAO" class="spring5_IOC.dao.impl.UserDAOImpl"/>
 
 
 </beans>

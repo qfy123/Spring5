@@ -9,9 +9,9 @@
             2、class属性：要创建的对象的类的全路径（包类路径）
             3、name属性：跟id属性一样的作用，比较少用
     -->
-    <bean id="user" class="spring5.User"/>
+    <bean id="user" class="spring5_IOC.User"/>
     <!--配置Book类,使用set方法注入属性-->
-    <bean id="book" class="spring5.Book">
+    <bean id="book" class="spring5_IOC.Book">
         <!--使用property完成属性注入,name属性表示类的属性的名称，value表示要注入的属性值-->
         <property name="name" value="起飞"/>
         <property name="author" value="大司马"/>
@@ -21,7 +21,7 @@
 <!--        </property>-->
     </bean>
     <!--配置Order类，使用有参构造注入属性-->
-    <bean id="order" class="spring5.Order">
+    <bean id="order" class="spring5_IOC.Order">
         <constructor-arg name="name" value="abc"/>
         <constructor-arg name="address" value="china"/>
     </bean>
