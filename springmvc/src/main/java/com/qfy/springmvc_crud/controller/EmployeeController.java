@@ -7,8 +7,11 @@ import com.qfy.springmvc_crud.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 
 /**
@@ -36,15 +39,21 @@ public class EmployeeController {
      */
     @RequestMapping("/emps/toaddpage")
     public String toAddPage(Model model){
-        Collection<Department> departments = departmentDao.getDepartments();
-        model.addAttribute("depts",departments);
+
         model.addAttribute("employee",new Employee());
         return "add";
     }
     @RequestMapping(value = "/emp",method= RequestMethod.POST)
-    public String addEmp(Employee employee){
-        employeeDao.save(employee);
-        return "redirect:/emps";
+    public String addEmp(@Valid Employee employee, BindingResult result){//添加员工的时候进行数据校验(使用@Valid注解)，并使用BindingResult来判断校验结果
+        //获取是否有校验错误
+        boolean hasErrors = result.hasErrors();
+        if (hasErrors) {
+            System.out.println("数据有错");
+            return "add";
+        }else{
+            employeeDao.save(employee);
+            return "redirect:/emps";
+        }
     }
 
     /**
@@ -76,6 +85,8 @@ public class EmployeeController {
             Employee employee = employeeDao.get(id);
             model.addAttribute("employee",employee);
         }
+        Collection<Department> departments = departmentDao.getDepartments();
+        model.addAttribute("depts",departments);
     }
     @RequestMapping(value = "/emps/{id}",method = RequestMethod.DELETE)
     public String deleteEmp(@PathVariable("id")Integer id){

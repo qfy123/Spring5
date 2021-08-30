@@ -1,3 +1,4 @@
+<%@ page import="java.util.Date" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -73,5 +74,37 @@
 <a href="handleplus">测试自定义视图解析器</a><br/>
 <h1>-----------------------------------------------</h1>
 <a href="emps">SpringMVC的CRUD--转到员工列表</a>
+<h1>----------------------文件上传-------------------------</h1>
+<%--文件上传：
+    1、文件上传表单准备：enctype="multipart/form-data"
+    2、导入fileupload包
+    3、如果时javaweb：
+        object = new FileItemDiskFactory()
+        ServletFileUpload upload = new ServletFileUpload(object)
+        List<FileItem> items = upload.parseRequest(upload)
+        for(FileItem item:items){
+            if(item.isField())
+            //普通项
+            else
+                //文件项IOUtils.copy()}
+    4、spring只需要在配置文件中编写一个配置，配置文件上传解析器（MultipartResolver），然后文件上传请求处理--%>
+${msg}
+<form action="upload" enctype="multipart/form-data" method="post">
+    用户头像：<input name="headerimg" type="file"/><br/>
+    用户头像：<input name="headerimg" type="file"/><br/>
+    用户头像：<input name="headerimg" type="file"/><br/>
+    用户头像：<input name="headerimg" type="file"/><br/>
+    用户头像：<input name="headerimg" type="file"/><br/>
+    用户头像：<input name="headerimg" type="file"/><br/>
+    用户名：<input type="text" name="username"/><br/>
+    <input type="submit"/>
+</form>
+<h1>-----------------------------------------------</h1>
+<a href="test01">测试拦截器01方法</a>
+<h1>-----------------------------------------------</h1>
+<a href="toLoginPage">测试点击链接切换国际化</a>
+<h1>-----------------------------------------------</h1>
+<a href="exception01?i=10">测试异常处理@ExceptionHandler</a>
+<a href="exception02?username=admin">测试异常处理@ResponseStatus</a>
 </body>
 </html>

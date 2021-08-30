@@ -29,11 +29,12 @@
 %>
 <form:form action="${add}/emp" modelAttribute="employee" method="post">
     <%--path:需要写原来html的input的name属性，当作原生的name项，自动回显隐含模型中某个对象对应的属性值--%>
-    LastName:<form:input path="lastName"/><br/>
-    Email:<form:input path="email"/><br/>
+    LastName:<form:input path="lastName"/><form:errors path="lastName"/><br/>
+    Email:<form:input path="email"/><form:errors path="email"/><br/>
     Gender:
         男：<form:radiobutton path="gender" value="1"/>
         女：<form:radiobutton path="gender" value="0"/><br/>
+    Birth:<form:input path="birth"/><form:errors path="birth"/><br/>
     <%--items:指定要遍历的集合，自动遍历，遍历出的每一个元素都是department对象
         itemLabel：指定遍历出的对象的哪个属性作为option标签体的值
         itemValue：指定遍历出的对象的哪个属性作为要提交的值--%>

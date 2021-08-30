@@ -11,6 +11,9 @@
     <title>Title</title>
 </head>
 <body>
+<%
+    System.out.println("拦截器01方法来到success页面");
+%>
 <h1>成功!!!!!!!!!</h1>
 <h1>通过map传入数据</h1>
 pageContext:${pageScope.msg}<br/>

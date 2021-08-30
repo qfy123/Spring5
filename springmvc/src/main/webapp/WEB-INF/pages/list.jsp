@@ -38,6 +38,7 @@
             <td>${emp.lastName}</td>
             <td>${emp.email}</td>
             <td>${emp.gender==0?"女":"男"}</td>
+            <td>${emp.birth}</td>
             <td>${emp.department.departmentName}</td>
             <td><a href="emps/${emp.id}">编辑</a></td>
             <td><a href="emps/${emp.id}" class="delBtn">删除</a></td>

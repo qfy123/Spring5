@@ -32,4 +32,23 @@
     <mvc:view-controller path="/toLoginPage" view-name="login"/>
     <!--开启mvc注解驱动模式-->
     <mvc:annotation-driven/>
+    <!--配置文件上传解析器,id必须为multipartResolver-->
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+        <property name="maxUploadSize" value="#{1024*1024*20}"/><!--设置最大文件大小-->
+        <property name="defaultEncoding" value="utf-8"/><!--设置默认编码-->
+    </bean>
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <!--配置某个拦截器,如下写默认拦截所有请求-->
+        <bean class="com.qfy.springmvc_interceptor.MyFirstInterceptor"/>
+        <!--如下写可以配置某个拦截器更详细的信息-->
+        <mvc:interceptor>
+            <mvc:mapping path="/test01"/>
+            <bean class="com.qfy.springmvc_interceptor.MySecondInterceptor"/>
+        </mvc:interceptor>
+        <!--多个拦截器，已放行的拦截器的afterCompletion总会执行-->
+    </mvc:interceptors>
+
+    <!--配置自定义区域信息解析器-->
+    <bean class="com.qfy.springmvc_locale.MyLocaleResolver" id="localeResolver"/>
 </beans>

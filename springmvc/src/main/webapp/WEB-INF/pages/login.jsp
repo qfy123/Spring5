@@ -21,5 +21,6 @@
     <fmt:message key="password"/>:<input type="password"><br/>
     <input type="submit" value='<fmt:message key="loginBtn"/> '>
 </form>
+<a href="toLoginPage?locale=zh_CN">中文</a>|<a href="toLoginPage?locale=en_US">English</a>
 </body>
 </html>
